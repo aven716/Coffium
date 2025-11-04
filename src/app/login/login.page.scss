@@ -1,0 +1,124 @@
+
+/* optional if you have global variables */
+
+ion-content.register-page {
+    --background: #13442e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 16px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+ion-content.register-page .background-overlay {
+   
+    inset: 0;
+    background: radial-gradient(circle at top left,
+            rgba(163, 182, 138, 0.15),
+            rgba(19, 68, 46, 0.9));
+   
+}
+
+.register-container {
+    width: 100%;
+    max-width: 380px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 40px auto;
+}
+
+.title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.title span {
+    color: #a3b68a;
+}
+
+.subtitle {
+    color: #c7b793;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.register-card {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 18px 16px;
+    box-sizing: border-box;
+}
+
+.input-field {
+    --background: transparent;
+    --color: #ffffff;
+    --placeholder-color: #d9d9d9;
+    --highlight-color-focused: #a3b68a;
+    --border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    margin-bottom: 10px;
+
+    ion-label {
+        color: #c7b793 !important;
+    }
+
+    ion-input {
+        color: #ffffff;
+    }
+}
+
+.register-btn {
+    margin-top: 10px;
+    --background: #a3b68a;
+    --background-activated: #5c724a;
+    --border-radius: 25px;
+    font-weight: 600;
+    height: 48px;
+    color: #13442e;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+
+    a {
+        color: #a3b68a;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+.coffium-logo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0 15px 0;
+}
+
+.coffium-logo img {
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+    border-radius: 50%;
+    transform: scale(2.1);
+}

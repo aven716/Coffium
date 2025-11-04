@@ -1,0 +1,71 @@
+<ion-app>
+
+  <!-- 🌟 Side Menu -->
+  <ion-menu side="start" menuId="first" contentId="main-content" type="overlay">
+
+    <!-- User Banner -->
+    <div class="menu-banner">
+      <img class="banner-bg" src="assets/images/sidebarbanner.png" alt="Banner" />
+      <div class="user-info">
+        <ion-avatar>
+          <img [src]="user.profile_image" alt="Profile" />
+        </ion-avatar>
+        <div class="user-text">
+          <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+          <p>{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <ion-content class="menu-content">
+      <ion-list lines="none" class="menu-list">
+
+        <!-- 🏠 HOME / DASHBOARD -->
+        <ion-item routerLink="/home" detail="false">
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/profile" detail="false">
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>Profile</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/orders" detail="false">
+          <ion-icon slot="start" name="receipt-outline"></ion-icon>
+          <ion-label>Orders</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/cart" detail="false">
+          <ion-icon slot="start" name="cart-outline"></ion-icon>
+          <ion-label>Cart</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/wishlist" detail="false">
+          <ion-icon slot="start" name="heart-outline"></ion-icon>
+          <ion-label>Wishlist</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/faqs" detail="false">
+          <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+          <ion-label>FAQs</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/about" detail="false">
+          <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+          <ion-label>About Us</ion-label>
+        </ion-item>
+
+        <ion-item (click)="logout()" detail="false" class="logout-item">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- 🧭 Main App Content -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>

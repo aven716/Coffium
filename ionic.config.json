@@ -1,0 +1,7 @@
+{
+  "name": "coffium",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

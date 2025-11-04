@@ -1,0 +1,178 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import '@ionic/angular/css/palettes/dark.system.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* global font */
+:root {
+    --ion-font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body,
+ion-app,
+ion-content {
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+}
+
+app-header {
+    background-color: whitesmoke;
+
+    box-shadow: none;
+}
+
+ion-menu {
+    z-index: 9999 !important;
+}
+
+/* src/global.scss */
+
+/* Menu Items: flat, no borders, aligned icons */
+ion-menu ion-list ion-item {
+  --background: transparent;
+  border: none;
+  --inner-padding-end: 16px;
+  --inner-padding-start: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+ion-menu ion-list ion-item ion-icon {
+  font-size: 22px;
+  color: #13442e;
+  margin-right: 16px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+ion-menu ion-list ion-item .item-inner {
+  color: #13442e;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+ion-menu ion-list ion-item:hover {
+  --background: rgba(19, 68, 46, 0.08);
+}
+
+ion-menu ion-list ion-item:hover ion-icon {
+  color: #69daa7;
+  transform: scale(1.1);
+}
+
+ion-menu ion-list ion-item.logout {
+  color: #d9534f;
+}
+
+ion-menu ion-list ion-item.logout:hover {
+  --background: rgba(217, 83, 79, 0.1);
+  color: #a94442;
+}
+
+ion-menu ion-list ion-item.logout:hover ion-icon {
+  color: #a94442;
+  transform: scale(1.1);
+}
+
+.user-bar {
+  --background: linear-gradient(135deg, #FFFFFF, #cff1d8);
+  color: #000000;
+  margin: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+  ion-avatar img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin: 2px 0 0 0;
+  }
+
+  ion-buttons ion-button {
+    --color: #13442e;
+
+    &:nth-child(1) ion-icon {
+      color: red;
+    }
+
+    &:nth-child(2) ion-icon {
+      color: #69daa7;
+    }
+  }
+}
+
+.user-bar ion-avatar, .user-bar ion-menu-button {
+  width: 45px;
+  /* fixed size */
+  height: 45px;
+  /* fixed size */
+  border-radius: 50%;
+  /* makes it circular */
+  overflow: hidden;
+  /* ensures image doesn't spill out */
+}
+
+.user-bar ion-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* crops image to fill the container without stretching */
+  display: block;
+  /* removes default inline spacing */
+}
+
+.user-bar ion-menu-button img {
+  width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* crops image to fill the container without stretching */
+    display: block;
+    /* removes default inline spacing */
+
+}

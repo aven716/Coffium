@@ -1,0 +1,100 @@
+
+  <app-header [showSearchbar]="true" [showIcons]="true" (toggleMenu)="onHeaderToggleMenu()">
+  </app-header>
+
+  <ion-content scrollEvents="true" class="homepage-content">
+    <div class="page-background">
+
+      <!-- Product Card -->
+      <div *ngIf="product" class="product-card">
+        <img [src]="getProductImage(product.picture)" [alt]="product.product_name" class="product-img">
+
+    <div class="product-info">
+      <p class="price">₱{{ product.price }}</p>
+      <h2 class="title">{{ product.product_name }}</h2>
+          <p>Reviews ({{ product.totalRatings }})</p>
+      <!-- Ratings under product name -->
+      <div class="rating-small">
+
+        <ion-icon name="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= product.rating"></ion-icon>
+        <span><p>{{ product.rating }}/5 ({{ product.totalRatings }} ratings)</p>
+</span>
+         
+      </div>
+    
+      <p class="label">Size: <span class="size-name">Medium</span></p>
+    
+      <div class="size-options">
+        <span class="size-box">S</span>
+        <span class="size-box active">M</span>
+        <span class="size-box">L</span>
+        <span class="size-box">XL</span>
+      </div>
+    
+      <p class="desc">{{ product.description || 'No description available for this product.' }}</p>
+    
+      <ul class="features">
+        <li>Premium roasted beans</li>
+        <li>Freshly packed for quality aroma</li>
+      </ul>
+    
+      <!-- Button Group with Quantity Selector -->
+      <div class="btn-group">
+        <div class="quantity-selector">
+          <button (click)="decreaseQuantity()" class="qty-btn">-</button>
+          <span class="qty-value">{{ quantity }}</span>
+          <button (click)="increaseQuantity()" class="qty-btn">+</button>
+        </div>
+        
+
+          <button class="buy-btn">Buy Now</button>
+        <!-- Add to Cart icon button -->
+        <button class="add-btn" (click)="addToCart(product, quantity)">
+          <ion-icon name="cart"></ion-icon>
+        </button>
+    
+      
+      </div>
+    
+      <!-- Reviews inside product card -->
+      <div class="reviews-container">
+      
+        <div class="reviews-list">
+          <div *ngFor="let review of product.reviews" class="review">
+            <p class="review-user">{{ review.user_name }}</p>
+            <p class="review-text">{{ review.comment }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </div>
+
+      <!-- REVIEW SUBMISSION: NEW CONTAINER BELOW PRODUCT CARD -->
+      <div class="review-submit-container" *ngIf="product">
+        <h3>Submit Your Review</h3>
+
+        <div class="rating-input">
+          <label>Rating:</label>
+          <ion-icon *ngFor="let s of [1,2,3,4,5]" name="star" [class.filled]="s <= newRating"
+            (click)="newRating = s"></ion-icon>
+        </div>
+
+        <ion-textarea placeholder="Write your review..." [(ngModel)]="newComment"></ion-textarea>
+
+        <ion-button expand="block" color="primary" (click)="submitReview()">Submit Review</ion-button>
+        <div *ngFor="let c of product.comments">
+          <p><strong>{{ c.user_name }}</strong></p>
+          <p>{{ c.comment }}</p>
+          <small>{{ c.created_at | date:'medium' }}</small>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="!product" class="loading">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Loading product details...</p>
+      </div>
+
+    </div>
+  </ion-content>

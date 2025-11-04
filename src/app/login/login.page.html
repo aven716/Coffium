@@ -1,0 +1,32 @@
+
+
+  <ion-content class="register-page">
+    <div class="background-overlay"></div>
+    <div class="register-container">
+      <div class="coffium-logo">
+        <img src="assets/images/coffium_logo.png" />
+      </div>
+      <div class="title">Welcome to <span>Coffium</span></div>
+      <div class="subtitle">Login to continue</div>
+  
+      <div class="register-card">
+        <ion-item class="input-field">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+  
+        <ion-item class="input-field">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+  
+        <ion-button expand="block" class="register-btn" (click)="login()">
+          Login
+        </ion-button>
+      </div>
+  
+      <div class="footer-text">
+        Don't have an account? <a routerLink="/register">Register here</a>
+      </div>
+    </div>
+  </ion-content>

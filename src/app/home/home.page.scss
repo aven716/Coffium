@@ -1,0 +1,307 @@
+/* ================= Header ================= */
+ion-header {
+  --background: #13442e; // dark green
+  color: #ffffff; // white text
+  box-shadow: none;
+}
+
+ion-toolbar {
+  --justify-content: flex-start; 
+    --background: #13442e;// align toolbar content to left
+    ion-icon {
+    
+        color: #ffffff;
+      }
+    }
+
+
+ion-title {
+  text-align: left; // ensure title text starts at left
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 5px 10%;
+
+  ion-icon {
+    
+    color: #ffffff;
+  }
+}
+
+/* User info bar (ion-item) */
+.user-bar {
+  --background: #ffffff; // swap: white background
+  color: #000000; // dark text
+  margin: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+  ion-avatar img {
+    border-radius: 50%;
+  }
+
+  h2 {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin: 2px 0 0 0;
+  }
+  
+}
+.favorite-icon{
+  color: red;
+}
+
+.cart-icon{
+  color: #69daa7;
+}
+/* ================= Homepage Content ================= */
+.homepage-content {
+  --background: #f5f5f5;
+  padding: 15px 0 30px 0;
+}
+
+/* ================= Carousel ================= */
+#posterCarousel {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto 20px auto;
+  /* center it with bottom spacing */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#posterCarousel img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* ================= Categories Chips ================= */
+.categories-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+ion-chip {
+  background-color: rgba(19, 68, 46, 0.1);
+  /* light transparent background */
+  color: #13442e;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(19, 68, 46, 0.2);
+}
+
+ion-chip.selected {
+  background-color: #13442e;
+  /* solid when selected */
+  color: #fff;
+}
+
+ion-chip:hover {
+  transform: scale(1.05);
+  border-color: #13442e;
+}
+
+h3{
+  font-weight: bold;
+}
+
+/* ================= Section Separation ================= */
+.section-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #13442e;
+  padding: 12px 16px 4px 16px;
+ 
+  margin-top: 20px;
+}
+
+/* ================= Product Cards ================= */
+.product-card.themed-card {
+  background-color: whitesmoke;
+    height: 250px;
+    width: 100%;
+    /* take full width of the column */
+    max-width: 200px;
+    /* limit width so it doesn’t stretch too much */
+    margin: 0 auto;
+    /* center inside the column */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(163, 182, 138, 0.2);
+  }
+
+  ion-card-header {
+    padding: 6px 10px;
+  }
+
+  ion-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #13442e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  ion-card-subtitle {
+    font-size: 0.75rem;
+    color: #5c724a;
+    margin-top: 2px;
+  }
+
+  ion-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+  }
+
+  .buy-button {
+    --background: #a3b68a;
+    --background-activated: #5c724a;
+    --color: #13442e;
+    --border-radius: 25px;
+    font-size: 0.85rem;
+    flex: 1;
+    margin-right: 5px;
+  }
+
+  .cart-button {
+    --background: #13442e;
+    --color: #ffffff;
+    --border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.section-container {
+  background-color: #fafafa;
+  /* slightly off-white */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  margin: 15px 0px;
+  width: 100%;
+  
+  /* spacing between sections */
+}
+
+/* Example for carousel container */
+.carousel-container {
+  @extend .section-container;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Example for category chips container */
+.categories-container {
+  @extend .section-container;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+/* Example for products grid container */
+.products-section {
+  @extend .section-container;
+  padding: 10px 12px;
+}
+
+/* Section headers */
+.section-header {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #13442e;
+  margin-bottom: 10px;
+}
+
+.section-container {
+  background-color: #f9f9f9;
+  /* slightly off-white */
+  padding: 12px;
+
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.categories-section {
+  background-color: #fff;
+  /* different subtle background for chips */
+  padding: 10px;
+}
+
+.categories-container ion-chip {
+  background-color: rgba(19, 68, 46, 0.1);
+  color: #13442e;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.categories-container ion-chip.selected {
+  background-color: rgba(19, 68, 46, 0.8);
+  color: #fff;
+}
+
+.categories-container ion-chip.clear-chip {
+  background-color: #ccc;
+  color: #000;
+}
+
+/* Carousel Section */
+#posterCarousel {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 90%;
+  /* doesn’t take full width */
+  margin: auto;
+}
+
+
+
+.homepage-content {
+  .section-header {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #13442e;
+    padding-left: 16px;
+    margin-bottom: 5px;
+    
+  }
+}
+
+app-header {
+  background-color: whitesmoke;
+ 
+  box-shadow: none;
+}

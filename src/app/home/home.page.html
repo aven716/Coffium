@@ -1,0 +1,122 @@
+
+
+
+  
+    <app-header [showSearchbar]="true" [showIcons]="true" (toggleMenu)="onHeaderToggleMenu()">
+      <ion-item lines="none" button (click)="toggleMenu()" class="user-bar">
+        <ion-avatar slot="start">
+          <img [src]="user.profile_image" alt="Profile" />
+        </ion-avatar>
+      
+        <ion-label>
+          <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+          <p>Welcome Back!</p>
+        </ion-label>
+      
+        <!-- Action buttons -->
+        <ion-buttons slot="end" *ngIf="showIcons">
+          <ion-button (click)="goToFavorites(); $event.stopPropagation()">
+            <ion-icon slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
+          <ion-button (click)="goToCart(); $event.stopPropagation()">
+            <ion-icon slot="icon-only" name="cart"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </app-header>
+    <ion-content scrollEvents="true" class="homepage-content">
+
+      <!-- User Info -->
+    
+    
+      <!-- Search Bar -->
+    
+    
+      <!-- Pickup/Delivery -->
+    
+    
+      <!-- Posters Carousel Section -->
+    
+      <div id="posterCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let poster of posters; let i = index" [class.active]="i === 0">
+            <img [src]="getPosterUrl(poster.image)" class="d-block w-100" alt="{{poster.title}}">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#posterCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#posterCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    
+    
+      <!-- Category Chips Section -->
+    
+      <div class="categories-container ion-padding-horizontal" style="box-shadow: none; background-color: transparent;">
+        <ion-chip *ngFor="let cat of categories" (click)="selectCategory(cat)"
+          [class.selected]="cat.category_id === selectedCategoryId">
+          <ion-label>{{ cat.category_name }}</ion-label>
+        </ion-chip>
+    
+        <ion-chip *ngIf="selectedCategoryId" (click)="clearFilter()" class="clear-chip">
+          <ion-label>Clear Filter</ion-label>
+        </ion-chip>
+      </div>
+    
+    
+      <!-- Top Products Section -->
+      <div class="section-container">
+        <h3 class="section-header ion-padding-start">Top Products</h3>
+        <ion-grid class="ion-padding">
+          <ion-row>
+            <ion-col size="6" size-md="4" *ngFor="let product of topProducts">
+              <ion-card class="product-card themed-card" (click)="openProduct(product)">
+                <img [src]="getProductImage(product.picture)" alt="{{ product.product_name }}">
+                <ion-card-header>
+                  <ion-card-title>{{ product.product_name }}</ion-card-title>
+                  <ion-card-subtitle>₱{{ product.price }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-button class="buy-button" fill="solid" size="small">
+                    Buy
+                  </ion-button>
+                  <ion-button class="cart-button" fill="solid" size="small">
+                    <ion-icon slot="icon-only" name="cart"></ion-icon>
+                  </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    
+      <!-- Suggested Products Section -->
+      <div class="section-container">
+        <h3 class="section-header ion-padding-start">Suggested Products</h3>
+        <ion-grid class="ion-padding">
+          <ion-row>
+            <ion-col size="6" size-md="4" *ngFor="let product of suggestedProducts">
+              <ion-card class="product-card themed-card" (click)="openProduct(product)">
+                <img [src]="getProductImage(product.picture)" alt="{{ product.product_name }}">
+                <ion-card-header>
+                  <ion-card-title>{{ product.product_name }}</ion-card-title>
+                  <ion-card-subtitle>₱{{ product.price }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-button class="buy-button" fill="solid" size="small">
+                    Buy
+                  </ion-button>
+                  <ion-button class="cart-button" fill="solid" size="small">
+                    <ion-icon slot="icon-only" name="cart"></ion-icon>
+                  </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    
+    </ion-content>
+

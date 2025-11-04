@@ -1,0 +1,26 @@
+<app-header [showSearchbar]="true" [showIcons]="true" (toggleMenu)="onHeaderToggleMenu()"></app-header>
+
+<ion-content class="faq-content">
+  <div class="faq-wrapper">
+
+    <div class="faq-header">
+      <img src="assets/images/coffium_logo.png" alt="Coffium Logo" class="about-logo" />
+      <h1>❓ Frequently Asked Questions</h1>
+      <p>Here are some common questions about Coffium and our services.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-card" *ngFor="let f of faqs">
+        <div class="faq-question" [class.active]="f.expanded" (click)="toggleExpand(f)">
+          <h2>{{ f.question }}</h2>
+          <ion-icon [name]="f.expanded ? 'chevron-up' : 'chevron-down'"></ion-icon>
+        </div>
+
+        <div class="faq-answer" [class.expanded]="f.expanded">
+          <p>{{ f.answer }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

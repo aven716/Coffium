@@ -1,0 +1,49 @@
+<ion-content class="register-page">
+  <div class="background-overlay"></div>
+
+  <div class="register-container">
+    <h1 class="title">Join <span>Coffium</span></h1>
+
+    <!-- 👇 Add your logo here -->
+  <div class="coffium-logo">
+    <img src="assets/images/coffium_logo.png" alt="Coffium Logo" />
+  </div>
+
+    <p class="subtitle">Create your account to start your coffee journey ☕</p>
+
+    <ion-card class="register-card">
+      <ion-card-content>
+      <form (ngSubmit)="registerUser()">
+        <ion-item class="input-field">
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input type="text" [(ngModel)]="user.first_name" name="first_name" required></ion-input>
+        </ion-item>
+      
+        <ion-item class="input-field">
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="text" [(ngModel)]="user.last_name" name="last_name" required></ion-input>
+        </ion-item>
+      
+        <ion-item class="input-field">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+        </ion-item>
+      
+        <ion-item class="input-field">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+        </ion-item>
+      
+        <ion-button expand="block" type="submit" class="register-btn">
+          Create Account
+        </ion-button>
+      </form>
+
+      </ion-card-content>
+    </ion-card>
+
+    <p class="footer-text">
+      Already have an account? <a [routerLink]="['/login']">Sign in</a>
+    </p>
+  </div>
+</ion-content>

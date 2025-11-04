@@ -1,0 +1,286 @@
+/* ================= Header Toolbar ================= */
+ion-toolbar.header-toolbar {
+    
+    --min-height: 56px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --background: linear-gradient(to bottom, #35593E, #2D4739);
+}
+
+/* Wrapper for menu + search */
+.header-flex {
+    display: flex;
+    align-items: center;
+    /* ✅ vertically centers both */
+    width: 100%;
+}
+
+/* Menu button styling */
+.header-flex ion-buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    color: white;
+}
+
+/* Searchbar styling */
+.header-flex ion-searchbar {
+    flex: 1;
+    --height: 40px;
+    --border-radius: 8px;
+    --background: #3e443d;
+    --box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    color: grey;
+    align-self: center;
+}
+
+/* ================= User Info Bar ================= */
+
+/* ================= Search Bar & Dropdown ================= */
+ion-searchbar {
+    margin: 10px 15px;
+    border-radius: 10px;
+   
+    --box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    --placeholder-color: #777;
+    --color: #13442e;
+    z-index: 10;
+    /* keeps above background */
+}
+
+/* Wrap searchbar and results together */
+.search-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    height: fit-content;
+}
+
+/* Dropdown container */
+.search-results {
+    position: absolute;
+    top: 60px;
+    /* directly below searchbar */
+    left: 15px;
+    right: 15px;
+    background: #000000;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid rgba(19, 68, 46, 0.2);
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Result list items */
+.search-results ion-item {
+    --background: transparent;
+    --inner-padding-end: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-results ion-item:hover {
+    --background: rgba(19, 68, 46, 0.05);
+}
+
+.search-results ion-thumbnail img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.search-results h2 {
+    font-size: 0.95rem;
+    color: #13442e;
+    margin: 0;
+}
+
+.search-results p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 2px 0 0;
+}
+
+/* Spinner when searching */
+ion-spinner {
+    display: block;
+    margin: 10px auto;
+    color: #13442e;
+}
+
+/* Subtle dropdown animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* centers horizontally */
+    width: 100%;
+    padding: 0;
+    /* remove left/right padding */
+}
+
+/* Searchbar */
+ion-searchbar {
+    width: 90%;
+    /* adjust width as needed */
+    max-width: 500px;
+    /* optional max width */
+    border-radius: 10px;
+    --box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    --placeholder-color: #777;
+    --color: #13442e;
+    z-index: 10;
+}
+
+/* Dropdown container aligns with searchbar */
+.search-results {
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: #000000;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid rgba(19, 68, 46, 0.2);
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.user-bar ion-avatar {
+    width: 45px;
+    /* fixed size */
+    height: 45px;
+    /* fixed size */
+    border-radius: 50%;
+    /* makes it circular */
+    overflow: hidden;
+    /* ensures image doesn't spill out */
+}
+
+.user-bar ion-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* crops image to fill the container without stretching */
+    display: block;
+    /* removes default inline spacing */
+}
+
+/* Center everything inside the toolbar vertically */
+.header-flex ion-searchbar {
+    flex: none;
+    width: 70%;
+        /* adjust this percentage as you like (e.g. 60%, 80%) */
+        max-width: 400px;
+    --height: 36px;
+    /* shorter, fits toolbar height */
+    height: 36px;
+    /* ensure the host matches */
+color: white;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    /* vertically center it */
+    --border-radius: 8px;
+    --background: #4c914f41;
+    --box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* remove extra inner padding */
+.header-flex ion-searchbar::part(container) {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* make sure toolbar doesn't add vertical offset */
+ion-toolbar.header-toolbar::part(container),
+ion-toolbar.header-toolbar::part(content) {
+    display: flex;
+    align-items: center;
+}
+
+.header-flex>div {
+    display: flex;
+    align-items: center;
+    /* ✅ vertically centers “Coffium” */
+    margin-right: 10px;
+}
+
+.header-flex h3 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* === Right-aligned search with expand animation === */
+.search-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Hidden by default */
+.collapsible-search {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: scaleX(0);
+    transform-origin: right center;
+    /* expands from right → left */
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        width 0.3s ease;
+}
+
+/* Expanded state */
+.search-container.expanded .collapsible-search {
+    width: 180px;
+    /* adjust as you wish */
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Search icon styling */
+.search-container ion-button {
+    --color: white;
+    margin-left: 6px;
+}
+
+/* Optional: refine searchbar appearance */
+.collapsible-search ion-searchbar {
+    --background: #fff;
+    --color: #13442e;
+    --border-radius: 8px;
+    height: 36px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+ion-menu-button{
+    color: white;
+}

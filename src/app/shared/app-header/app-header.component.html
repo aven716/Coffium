@@ -1,0 +1,61 @@
+
+
+<ion-header>
+  <ion-toolbar class="header-toolbar">
+    <div class="header-flex">
+      <!-- Menu button -->
+      <ion-buttons slot="start">
+        <ion-menu-button>
+        </ion-menu-button>
+      </ion-buttons>
+
+      <!-- Logo -->
+<!-- Logo -->
+<div class="logo">
+  <ion-button fill="clear" routerLink="/home" detail="false">
+    <h3>Coffium</h3>
+  </ion-button>
+</div>
+
+      <!-- Collapsible search -->
+      <div class="search-container" [class.expanded]="searchExpanded">
+        <div class="collapsible-search">
+          <ion-searchbar
+            [(ngModel)]="searchQuery"
+            placeholder="Search..."
+            (ionInput)="onSearchChange($event)">
+          </ion-searchbar>
+        </div>
+        <ion-button fill="clear" (click)="toggleSearch()">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+
+
+
+  <!-- Search Results -->
+  <div *ngIf="searchResults.length > 0" class="search-results">
+    <ion-list>
+      <ion-item
+        button
+        *ngFor="let product of searchResults"
+        (click)="openProduct(product)">
+        <ion-thumbnail slot="start">
+          <img [src]="'https://add2mart.shop/ionic/coffium/api/images/products/' + product.picture" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ product.name }}</h2>
+          <p>₱{{ product.price }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-spinner *ngIf="searching"></ion-spinner>
+  <ng-content></ng-content>
+</ion-header>
+
+<!-- User bar -->
+

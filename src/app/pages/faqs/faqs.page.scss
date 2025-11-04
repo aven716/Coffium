@@ -1,0 +1,118 @@
+.faq-content {
+    --background: whitesmoke;
+    display: block;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.faq-wrapper {
+    width: 95%;
+    max-width: 850px;
+    margin: 0 auto;
+    /* ✅ true horizontal centering */
+    animation: fadeIn 0.5s ease-out;
+    text-align: center;
+}
+
+.faq-header {
+    margin-bottom: 25px;
+
+    h1 {
+        font-size: 1.8rem;
+        color: #2e4a25;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    p {
+        color: #555;
+        font-size: 1rem;
+    }
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.faq-card {
+    width: 90%;
+    max-width: 850px;
+    margin: 10px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .faq-question {
+        background: linear-gradient(135deg, #365c2a, #507d3b);
+        color: white;
+        padding: 15px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        h2 {
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        ion-icon {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        &.active ion-icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    .faq-answer {
+        background: #ffffff;
+        color: #444;
+        padding: 0 18px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        border-top: 1px solid #eee;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+
+        &.expanded {
+            padding: 15px 18px;
+            max-height: 250px;
+            opacity: 1;
+        }
+    }
+}
+
+img {
+    width: auto;
+    height: 200px;
+    margin-top: 10px;
+}
+
+
+/* subtle fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
